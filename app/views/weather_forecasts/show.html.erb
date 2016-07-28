@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+<h1>Coordinates</h1>
+<strong>Latitude:<%= @weather_forecast.lat %> |
+Longitude:<%= @weather_forecast.lng %> </strong>
+</div>
+
+<div>
+  <h2> <%= @current_conditions.summary %> and <%= @current_conditions.temperature %> </h2>
+</div>
+
+<div>
+  <% @daily_weather.each do |day| %><br>
+  <%= Time.at(day.time).strftime('%A') %>
+  <span> <h4> <%= day.summary %><br>
+      High: <%= day.apparentTemperatureMax %> | Low: <%= day.apparentTemperatureMin %><br>
+  <% end %>
+  </span>
+</div>
+
+<br>
+<span>
+<%= link_to 'Edit', edit_weather_forecast_path(@weather_forecast) %> |
+<%= link_to 'Back', weather_forecasts_path %>
+</span>

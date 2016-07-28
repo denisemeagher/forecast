@@ -1,0 +1,33 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Weather Forecasts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th colspan="8"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weather_forecasts.each do |weather_forecast| %>
+      <tr>
+        <td><%= weather_forecast.lat %></td>
+        <td><%= weather_forecast.lng %></td>
+        <td><%= link_to 'Show', weather_forecast %></td>
+        <td><%= link_to 'Edit', edit_weather_forecast_path(weather_forecast) %></td>
+        <td><%= link_to 'Destroy', weather_forecast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weather Forecast', new_weather_forecast_path %>
+
+<br>
+<br>
